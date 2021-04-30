@@ -44,7 +44,7 @@ class zzplayas implements IPlugin {
       zz.MajorasMask.equipment.forEach(zobj => {
         if (zobj !== '') {
           bus.emit(
-            OotOnlineEvents.LOAD_EQUIPMENT_PAK,
+            MMOnlineEvents.LOAD_EQUIPMENT_PAK,
             new Z64Online_EquipmentPak(zobj,
               readFileSync(path.resolve(path.join(__dirname, zobj))))
           );
