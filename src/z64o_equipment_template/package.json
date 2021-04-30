@@ -1,0 +1,21 @@
+{
+  "name": "z64o_equipment_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "z64o_equipment_template.js",
+  "author": "Team-Ooto",
+  "credits": "",
+  "license": "GPL-3.0",
+  "core": [
+    "OcarinaofTime",
+    "MajorasMask"
+  ],
+  "zzequipment": {
+    "OcarinaOfTime": {
+      "equipment": ["", ""]
+    },
+    "MajorasMask": {
+      "equipment": ["", ""]
+    }
+  }
+}
