@@ -32,10 +32,11 @@ class zzplayas implements IPlugin {
     let OOT = () => {
       zz.OcarinaOfTime.equipment.forEach(zobj => {
         if (zobj !== '') {
+          let data = readFileSync(path.resolve(path.join(__dirname, zobj)));
+          let name = this.ModLoader.utils.hashBuffer(data);
           bus.emit(
             OotOnlineEvents.LOAD_EQUIPMENT_PAK,
-            new Z64Online_EquipmentPak(zobj,
-              readFileSync(path.resolve(path.join(__dirname, zobj))))
+            new Z64Online_EquipmentPak(name, data)
           );
         }
       });
@@ -43,10 +44,11 @@ class zzplayas implements IPlugin {
     let MM = () => {
       zz.MajorasMask.equipment.forEach(zobj => {
         if (zobj !== '') {
+          let data = readFileSync(path.resolve(path.join(__dirname, zobj)));
+          let name = this.ModLoader.utils.hashBuffer(data);
           bus.emit(
             MMOnlineEvents.LOAD_EQUIPMENT_PAK,
-            new Z64Online_EquipmentPak(zobj,
-              readFileSync(path.resolve(path.join(__dirname, zobj))))
+            new Z64Online_EquipmentPak(name, data)
           );
         }
       });
