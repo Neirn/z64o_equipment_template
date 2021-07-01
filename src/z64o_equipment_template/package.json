@@ -12,10 +12,10 @@
   ],
   "zzequipment": {
     "OcarinaOfTime": {
-      "equipment": ["", ""]
+      "equipment": ["example1.zobj", "example2.zobj"]
     },
     "MajorasMask": {
-      "equipment": ["", ""]
+      "equipment": ["example3.zobj", "example4.zobj"]
     }
   }
 }
