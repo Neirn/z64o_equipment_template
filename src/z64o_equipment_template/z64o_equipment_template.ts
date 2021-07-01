@@ -54,10 +54,10 @@ class zzplayas implements IPlugin {
       let data = readFileSync(resolve(join(__dirname, zobj)));
       let name = this.ModLoader.utils.hashBuffer(data);
 
-      let nameOffset = name.indexOf("EQUIPMENTNAME");
+      let nameOffset = data.indexOf("EQUIPMENTNAME");
 
-      if (nameOffset == -1) {
-        throw new Error('INVALID EQUIPMENT MANIFEST: ' + zobj);
+      if (nameOffset === -1) {
+        throw new Error('INVALID EQUIPMENT MANIFEST (NO NAME HEADER): ' + zobj);
       }
 
       // set name to filename if zobj doesn't have name embedded
@@ -72,8 +72,8 @@ class zzplayas implements IPlugin {
 
           let catOffset = data.indexOf("EQUIPMENTCAT");
 
-          if (catOffset == -1) {
-            throw new Error('INVALID EQUIPMENT MANIFEST: ' + zobj);
+          if (catOffset === -1) {
+            throw new Error('INVALID EQUIPMENT MANIFEST (NO CATEGORY HEADER): ' + zobj);
           }
 
           data = Buffer.concat([data.slice(0, nameOffset + 0x10), nameBuf, Buffer.alloc(nameBuf.length % 0x10, 0), data.slice(catOffset)]);
