@@ -76,7 +76,10 @@ class zzplayas implements IPlugin {
             throw new Error('INVALID EQUIPMENT MANIFEST (NO CATEGORY HEADER): ' + zobj);
           }
 
-          data = Buffer.concat([data.slice(0, nameOffset + 0x10), nameBuf, Buffer.alloc(nameBuf.length % 0x10, 0), data.slice(catOffset)]);
+          let paddingAmount = nameBuf.length % 0x10;
+          paddingAmount += (paddingAmount === 0) ? 0x10 : 0;
+
+          data = Buffer.concat([data.slice(0, nameOffset + 0x10), nameBuf, Buffer.alloc(paddingAmount, 0), data.slice(catOffset)]);
         }
       }
 
